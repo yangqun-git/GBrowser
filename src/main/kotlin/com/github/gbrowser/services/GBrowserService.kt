@@ -27,10 +27,9 @@ class GBrowserService : SerializablePersistentStateComponent<GBrowserService.Set
 
     @Serializable
     data class SettingsState(
-        var defaultHomePage: String = "https://plugins.jetbrains.com/plugin/14458-gbrowser",
+        var defaultHomePage: String = "https://weread.qq.com/",
         var hideIdLabel: Boolean = true,
         var isReloadTabsOnStartup: Boolean = false,
-        var showBookMarksInToolbar: Boolean = true,
         var isHistoryEnabled: Boolean = true,
         var isSuggestionSearchEnabled: Boolean = false,
         var isSuggestionSearchHighlighted: Boolean = true,
@@ -78,14 +77,6 @@ class GBrowserService : SerializablePersistentStateComponent<GBrowserService.Set
         set(value) {
             updateStateAndEmit {
                 it.copy(hideIdLabel = value)
-            }
-        }
-
-    var showBookMarksInToolbar: Boolean
-        get() = state.showBookMarksInToolbar
-        set(value) {
-            updateStateAndEmit {
-                it.copy(showBookMarksInToolbar = value)
             }
         }
 
@@ -220,13 +211,6 @@ class GBrowserService : SerializablePersistentStateComponent<GBrowserService.Set
         }
     }
 
-
-    fun removeHistory() {
-        updateStateAndEmit {
-            it.copy(history = it.history.apply { clear() })
-        }
-    }
-
     var reloadTabOnStartup: Boolean
         get() = state.isReloadTabsOnStartup
         set(value) {
@@ -271,10 +255,6 @@ class GBrowserService : SerializablePersistentStateComponent<GBrowserService.Set
         updateStateAndEmit {
             it.copy(bookmarks = it.bookmarks.apply { clear() })
         }
-    }
-
-    fun existBookmark(url: String): Boolean {
-        return state.bookmarks.any { fav -> fav.url == url }
     }
 
 

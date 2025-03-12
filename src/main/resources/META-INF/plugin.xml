@@ -52,84 +52,10 @@
             <keyboard-shortcut keymap="$default" first-keystroke="control O"/>
         </action>
 
-        <action id="GBrowserRefreshAction" class="com.github.gbrowser.actions.browser.GBrowserRefreshAction"
-                icon="com.github.gbrowser.GBrowserIcons.REFRESH">
-            <keyboard-shortcut keymap="$default" first-keystroke="control R"/>
-        </action>
-
-        <action id="GBrowserStopLoadAction" class="com.github.gbrowser.actions.browser.GBrowserStopLoadAction"
-                icon="AllIcons.Actions.StopRefresh">
-            <keyboard-shortcut keymap="$default" first-keystroke="control PERIOD"/>
-        </action>
-
-        <action id="GBrowserPreferencesAction" class="com.github.gbrowser.actions.browser.GBrowserPreferencesAction"
-                icon="AllIcons.Actions.Refresh"/>
-
-        <action id="GBrowserZoomInAction" class="com.github.gbrowser.actions.browser.zoom.GBrowserZoomInAction"
-                icon="AllIcons.General.ZoomIn">
-            <keyboard-shortcut keymap="$default" first-keystroke="control PLUS"/>
-        </action>
-
-        <action id="GBrowserZoomOutAction" class="com.github.gbrowser.actions.browser.zoom.GBrowserZoomOutAction"
-                icon="AllIcons.General.ZoomOut">
-            <keyboard-shortcut keymap="$default" first-keystroke="control MINUS"/>
-
-        </action>
-
-        <action id="GBrowserZoomResetAction" class="com.github.gbrowser.actions.browser.zoom.GBrowserZoomResetAction"
-                icon="AllIcons.General.ActualZoom">
-            <keyboard-shortcut keymap="$default" first-keystroke="control 0"/>
-        </action>
-
-
-        <action id="GBrowserFindAction" class="com.github.gbrowser.actions.browser.GBrowserFindAction" icon="AllIcons.Actions.Find">
-            <keyboard-shortcut keymap="$default" first-keystroke="meta F"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="control F"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="alt F3"/>
-        </action>
-
-        <action id="GBrowserCookieDeleteAllAction" class="com.github.gbrowser.actions.browser.clear.GBrowserCookieDeleteAllAction"
-                icon="com.github.gbrowser.GBrowserIcons.BROOM">
-            <keyboard-shortcut keymap="$default" first-keystroke="shift control 8"/>
-        </action>
-
-        <action id="GBrowserClearHistoryAction" class="com.github.gbrowser.actions.browser.clear.GBrowserClearHistoryAction"
-                icon="com.github.gbrowser.GBrowserIcons.BROOM">
-            <keyboard-shortcut keymap="$default" first-keystroke="shift control 7"/>
-        </action>
-
-
-        <!--        bookmarks-->
-        <action id="GBrowserBookmarkManagerAction" class="com.github.gbrowser.actions.bookmark.GBrowserBookmarkManagerAction"
-                icon="com.github.gbrowser.GBrowserIcons.BOOKMARK_MANAGER">
-            <keyboard-shortcut keymap="$default" first-keystroke="control alt B"/>
-        </action>
-
-        <action id="GBrowserBookmarkAddAction" class="com.github.gbrowser.actions.bookmark.GBrowserBookmarkAddAction"
-                icon="com.github.gbrowser.GBrowserIcons.BOOKMARK_REMOVE">
-            <keyboard-shortcut keymap="$default" first-keystroke="control D"/>
-        </action>
-
-        <group id="GBrowserBookmarkGroupAction"
-               class="com.github.gbrowser.actions.bookmark.GBrowserBookmarkGroupAction"
-               popup="true"
-               icon="com.github.gbrowser.GBrowserIcons.BOOKMARK_MANAGER">
-        </group>
-
-        <!--        devtools-->
-        <action id="GBrowserDevToolsAction" class="com.github.gbrowser.actions.devtools.GBrowserDevToolsAction">
-            <keyboard-shortcut keymap="$default" first-keystroke="control I"/>
-        </action>
-
         <!--        toolwindow-->
         <action id="GBrowserToggleToolbarAction" class="com.github.gbrowser.actions.toolwindow.GBrowserToggleToolbarAction"
                 icon="AllIcons.Actions.ToggleVisibility">
             <keyboard-shortcut keymap="$default" first-keystroke="alt T"/>
-        </action>
-
-        <action id="GBrowserTabDuplicateAction" class="com.github.gbrowser.actions.toolwindow.GBrowserTabDuplicateAction"
-                icon="AllIcons.Actions.Copy">
-            <keyboard-shortcut keymap="$default" first-keystroke="alt control D"/>
         </action>
 
         <action id="GBrowserAddTabAction" class="com.github.gbrowser.actions.toolwindow.GBrowserAddTabAction" icon="AllIcons.General.Add">

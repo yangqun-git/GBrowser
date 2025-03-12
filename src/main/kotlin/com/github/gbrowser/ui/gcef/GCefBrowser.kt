@@ -75,8 +75,6 @@ class GCefBrowser(val project: Project,
         }
 
         model.addItem(MenuId.MENU_ID_USER_LAST, "Open DevTools")
-        model.addItem(BOOKMARK_ADD, GBrowserBundle.message(
-          "action.GBrowserBookmarkAddAction.text")) //model.addItem(26502, GBrowserBundle.message("action.GBrowserBookmarkAddAction.text")) //super.onBeforeContextMenu(browser, frame, params, model)
       }
 
       override fun onContextMenuCommand(browser: CefBrowser,

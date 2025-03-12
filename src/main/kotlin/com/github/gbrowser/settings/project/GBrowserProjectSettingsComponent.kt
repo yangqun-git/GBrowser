@@ -130,10 +130,6 @@ class GBrowserProjectSettingsComponent : SimpleToolWindowPanel(true, true), Disp
                         checkBox("Show tab icon").bindSelected(settings::isTabIconVisible) { value ->
                           settings.isTabIconVisible = value
                         }
-                      }, {
-                        checkBox("Show bookmarks toolbar").bindSelected(settings::showBookMarksInToolbar) { value ->
-                          settings.showBookMarksInToolbar = value
-                        }
                       })
       twoColumnsRow({
                       checkBox("Enable drag and drop tabs").bindSelected(settings::isDragAndDropEnabled) { value ->

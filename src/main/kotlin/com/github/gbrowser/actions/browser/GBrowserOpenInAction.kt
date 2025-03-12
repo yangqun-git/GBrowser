@@ -20,8 +20,6 @@ class GBrowserOpenInAction : AnAction(), DumbAware {
     findUsingBrowser().let {
       e.presentation.icon = it
     }
-
-
   }
 
   override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.EDT

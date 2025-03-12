@@ -22,6 +22,7 @@ import com.intellij.ui.content.ContentManagerEvent
 import com.intellij.ui.content.ContentManagerListener
 import com.intellij.util.application
 import java.util.*
+import javax.swing.JSlider
 
 
 @Suppress("UnstableApiUsage")

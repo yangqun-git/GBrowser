@@ -66,75 +66,14 @@ class GBrowserToolWindowActionBar(private val delegate: GBrowserToolWindowAction
   init {
 
     leftActionGroup.addAll(GBrowserActionId.LEFT)
-    rightActionGroup.add(GBrowserActionId.toAction(GBrowserActionId.GBROWSER_BOOKMARK_ADD_ID))
     val groupAll = GBrowserDynamicGroupAction(GBrowserActionId.allActions(), AllIcons.General.ArrowDown, "More Options")
     rightActionGroup.add(groupAll)
-    setupBookmarks()
   }
 
   val mainToolBarComponent: JPanel = JPanel(BorderLayout()).apply {
     add(browserComponent, BorderLayout.NORTH)
     add(bookmarksComponent, BorderLayout.SOUTH)
   }
-
-
-  private fun setupBookmarks() {
-    initBookMarks(settings.bookmarks)
-    settings.addListener { state: GBrowserService.SettingsState ->
-      bookmarksComponent.removeAll()
-      state.let { currentState ->
-        if (currentState.showBookMarksInToolbar) {
-          bookmarksComponent.isVisible = true
-          initBookMarks(currentState.bookmarks)
-        } else {
-          bookmarksComponent.isVisible = false
-        }
-      }
-    }
-  }
-
-  private fun initBookMarks(bookmarks: MutableSet<GBrowserBookmark>) {
-    val iconButtonSet = mutableMapOf<String, InlineIconButton>()
-    bookmarks.forEach { bookMark ->
-      val url = bookMark.url
-      favIconLoader.loadFavIcon(url, targetSize = 18).thenAccept { icon ->
-        icon?.let { iconBookMark ->
-          iconButtonSet[url] = InlineIconButton(iconBookMark).apply {
-            border = JBUI.Borders.empty(1, 5)
-            actionListener = ActionListener { delegate.onToolBarIcon(url) }
-            toolTipText = url
-            addMouseListener(object : MouseAdapter() {
-              override fun mouseClicked(e: MouseEvent) {
-                if (SwingUtilities.isRightMouseButton(e)) {
-                  createPopupMenu(bookMark, this@apply).show(e.component, e.x, e.y)
-                }
-              }
-            })
-          }
-        }
-      }
-    }
-
-    iconButtonSet.values.forEach {
-      bookmarksComponent.add(it)
-    }
-    bookmarksComponent.revalidate()
-    bookmarksComponent.repaint()
-  }
-
-  private fun createPopupMenu(bookmark: GBrowserBookmark, button: InlineIconButton): JBPopupMenu {
-    val popupMenu = JBPopupMenu()
-    val removeItem = JMenuItem("Remove Bookmark").apply {
-      addActionListener { // Add logic here to remove the bookmark
-        settings.removeBookmark(bookmark)
-        bookmarksComponent.remove(button)
-        bookmarksComponent.repaint()
-      }
-    }
-    popupMenu.add(removeItem)
-    return popupMenu
-  }
-
 
   override fun dispose() { // Disposal logic
     mainToolBarComponent.removeAll()
